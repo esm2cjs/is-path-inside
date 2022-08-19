@@ -1,59 +1,52 @@
-# is-path-inside
+# @esm2cjs/is-path-inside
 
-> Check if a path is inside another path
+This is a fork of https://github.com/sindresorhus/is-path-inside, but automatically patched to support ESM **and** CommonJS, unlike the original repository.
 
 ## Install
 
+You can use an npm alias to install this package under the original name:
+
 ```
-$ npm install is-path-inside
+npm i is-path-inside@npm:@esm2cjs/is-path-inside
+```
+
+```jsonc
+// package.json
+"dependencies": {
+    "is-path-inside": "npm:@esm2cjs/is-path-inside"
+}
+```
+
+but `npm` might dedupe this incorrectly when other packages depend on the replaced package. If you can, prefer using the scoped package directly:
+
+```
+npm i @esm2cjs/is-path-inside
+```
+
+```jsonc
+// package.json
+"dependencies": {
+    "@esm2cjs/is-path-inside": "^ver.si.on"
+}
 ```
 
 ## Usage
 
 ```js
-import isPathInside from 'is-path-inside';
+// Using ESM import syntax
+import isPathInside from "@esm2cjs/is-path-inside";
 
-isPathInside('a/b/c', 'a/b');
-//=> true
-
-isPathInside('a/b/c', 'x/y');
-//=> false
-
-isPathInside('a/b/c', 'a/b/c');
-//=> false
-
-isPathInside('/Users/sindresorhus/dev/unicorn', '/Users/sindresorhus');
-//=> true
+// Using CommonJS require()
+const isPathInside = require("@esm2cjs/is-path-inside").default;
 ```
 
-## API
+> **Note:**
+> Because the original module uses `export default`, you need to append `.default` to the `require()` call.
 
-### isPathInside(childPath, parentPath)
+For more details, please see the original [repository](https://github.com/sindresorhus/is-path-inside).
 
-Note that relative paths are resolved against `process.cwd()` to make them absolute.
+## Sponsoring
 
-**Important:** This package is meant for use with path manipulation. It does not check if the paths exist nor does it resolve symlinks. You should not use this as a security mechanism to guard against access to certain places on the file system.
+To support my efforts in maintaining the ESM/CommonJS hybrid, please sponsor [here](https://github.com/sponsors/AlCalzone).
 
-#### childPath
-
-Type: `string`
-
-The path that should be inside `parentPath`.
-
-#### parentPath
-
-Type: `string`
-
-The path that should contain `childPath`.
-
----
-
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/npm-is-path-inside?utm_source=npm-is-path-inside&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
+To support the original author of the module, please sponsor [here](https://github.com/sindresorhus/is-path-inside).
