@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../esm/index.js"],
+  "sourcesContent": ["import path from 'node:path';\n\nexport default function isPathInside(childPath, parentPath) {\n\tconst relation = path.relative(parentPath, childPath);\n\n\treturn Boolean(\n\t\trelation &&\n\t\trelation !== '..' &&\n\t\t!relation.startsWith(`..${path.sep}`) &&\n\t\trelation !== path.resolve(childPath)\n\t);\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,uBAAiB;AAEF,SAAR,aAA8B,WAAW,YAAY;AAC3D,QAAM,WAAW,iBAAAA,QAAK,SAAS,YAAY,SAAS;AAEpD,SAAO;AAAA,IACN,YACA,aAAa,QACb,CAAC,SAAS,WAAW,KAAK,iBAAAA,QAAK,KAAK,KACpC,aAAa,iBAAAA,QAAK,QAAQ,SAAS;AAAA,EACpC;AACD;",
+  "names": ["path"]
+}

@@ -1,6 +1,6 @@
 import path from 'node:path';
 import test from 'ava';
-import isPathInside from './index.js';
+import isPathInside from './esm/index.js';
 
 test('main', t => {
 	t.true(isPathInside('a', '/'));
